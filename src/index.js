@@ -1,6 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Container from './components/Layout/Container';
-import MessageList from './components/MessageList'
+import { Provider } from 'react-redux';
+import App from './App';
+import store from './storeSlice';
 
-ReactDOM.render(<Container />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>, document.getElementById('root'));

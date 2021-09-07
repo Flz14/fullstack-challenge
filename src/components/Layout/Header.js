@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledHeader = styled.div`
     display: flex;
     border-bottom: 2px solid black;
-    width:100vw;
+    width: 100%;
     margin-bottom:50px;
     & h1{
         margin:5px 40px;

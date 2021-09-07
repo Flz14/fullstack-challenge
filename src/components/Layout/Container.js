@@ -1,8 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Message from '../Messages/Message';
-import Messages from '../Messages/Messages';
-import MyButton from '../MyButton/MyButton';
 import Header from './Header';
 
 const StyledContainer = styled.div`
@@ -18,32 +15,13 @@ const StyledContainer = styled.div`
     }
 `;
 
-const StyledButtonsContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    && > *{
-        margin:0px 10px;
-    }
-`;
 
 
-const Container = () => {
+const Container = ({ children }) => {
     return (
         <StyledContainer>
-            <Header/>
-            <StyledButtonsContainer>
-                <MyButton label="stop"/>
-                <MyButton label="clear"/>
-            </StyledButtonsContainer>
-            <div className="message-containers">
-              {/*   <Message/>
-                <Message/>
-                <Message/> */}
-                <Messages/>
-                <Messages/>
-                <Messages/>
-            </div>
+            <Header />
+            {children}
         </StyledContainer>
     )
 }

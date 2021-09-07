@@ -4,20 +4,27 @@
   "description": "simplideco.com react coding challange",
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom"
+    "api": "npm --prefix api start",
+    "test": "react-scripts test --env=jsdom",
+    "install-both": "concurrently \"npm --prefix api install\" \"npm install\"",
+    "start": "concurrently \"npm --prefix api start\" \"react-scripts start\""
   },
   "author": "simplideco.com",
   "license": "MIT",
   "dependencies": {
     "@material-ui/core": "^3.8.2",
+    "@reduxjs/toolkit": "^1.6.1",
+    "axios": "^0.21.4",
+    "concurrently": "^6.2.1",
     "faker": "^5.5.3",
     "lodash": "^4.17.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.5",
     "react-scripts": "^4.0.3",
-    "styled-components": "^5.3.1"
+    "styled-components": "^5.3.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {},
   "browserslist": {
