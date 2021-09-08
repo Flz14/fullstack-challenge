@@ -34,13 +34,13 @@ export const slice = createSlice({
             messages: [],
             counter: 0
         },
-        snackbar:[],
+        snackbar: [],
         stop: false
     },
 
     reducers: {
         deleteMessage: (state, action) => {
-            
+
             const { type, id } = action.payload;
             state[KEYS_MESSAGES[type]].messages = state[KEYS_MESSAGES[type]].messages.filter(message => message.id !== id)
             state[KEYS_MESSAGES[type]].counter -= 1
@@ -59,16 +59,17 @@ export const slice = createSlice({
                 messages: [],
                 counter: 0,
             }
+            state.snackbar = []
         },
         toggleMessages: (state, action) => {
             state.stop = !state.stop;
         },
-        removeSnackbar: (state, action) => {            
-            state.snackbar = state.snackbar.splice(action.payload,1)
+        removeSnackbar: (state, action) => {
+            state.snackbar = state.snackbar.splice(action.payload, 1)
         },
         deleteSnackbarById: (state, action) => {
-            const  id  = action.payload;
-            state.snackbar = state.snackbar.filter((snackbar)=>snackbar.id!==id)
+            const id = action.payload;
+            state.snackbar = state.snackbar.filter((snackbar) => snackbar.id !== id)
         },
 
     },
@@ -83,19 +84,25 @@ export const slice = createSlice({
             }
 
             state.snackbar = [...state.snackbar, {
-                id:uuidv4(),
+                id: uuidv4(),
                 text: message,
-                type: type             
+                type: type
             }];
         },
 
         [getMessage.rejected]: (state, action) => {
-            console.log('ERROR', action)
+            const message  = action.payload;
+
+            state.snackbar = [...state.snackbar, {
+                id: uuidv4(),
+                text: message,
+                type: 4
+            }];
         },
     },
 });
 
-export const { toggleMessages, deleteAllMessages, deleteMessage, removeSnackbar, deleteSnackbarById} = slice.actions;
+export const { toggleMessages, deleteAllMessages, deleteMessage, removeSnackbar, deleteSnackbarById } = slice.actions;
 
 export default slice.reducer;
 

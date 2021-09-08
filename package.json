@@ -7,8 +7,8 @@
     "build": "react-scripts build",
     "api": "npm --prefix api start",
     "test": "react-scripts test --env=jsdom",
-    "install-both": "concurrently \"npm --prefix api install\" \"npm install\"",
-    "start": "concurrently \"npm --prefix api start\" \"react-scripts start\""
+    "start": "react-scripts start",
+    "start-both": "concurrently \"npm --prefix api start\" \"react-scripts start\""
   },
   "author": "simplideco.com",
   "license": "MIT",

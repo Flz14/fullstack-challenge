@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { COLOR_HEX } from '../../constants'
 
 const StyledContainer = styled.div`
-    background-color: ${({ bgColor }) => bgColor ? bgColor : ''};
+    background-color: ${({ bgcolor }) => bgcolor ? bgcolor : ''};
     width: 25rem;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -34,7 +34,7 @@ const StyledInnerLayout = styled.div`
 
 const MessageBox = ({ text = "", type = 1, deleteMessage = () => { } }) => {
     return (
-        <StyledContainer bgColor={COLOR_HEX[type]}>
+        <StyledContainer bgcolor={COLOR_HEX[type]}>
             <StyledInnerLayout>
                 <h4 className="message">{text}</h4>
                 <p className="button" onClick={() => deleteMessage()}>Clear</p>

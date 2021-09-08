@@ -1,3 +1,14 @@
+## How to run it
+
+Run npm install in the root file to install frontend.
+
+Write cd api to go to api root file and run npm install inside it.
+
+If 'cocurrently' library was installed successfully, you can run 'npm run start-both' for running both frontend and backend at the same time.
+
+Frontend should run on port 3000 and backend on port 8000.
+
+
 ## React Coding Challenge
 
 This code challenge tests your skills in react.js, testing and modular design.

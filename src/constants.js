@@ -1,7 +1,8 @@
 export const COLOR_HEX = {
     1: '#F56236', // Error
     2: '#FCE788', // Warning
-    3: '#88FCA3'  // Info
+    3: '#88FCA3',  // Info
+    4: '#ff0000'  // ERRROR FETCHING
 }
 
 export const ERROR_TYPE_TEXT = {
