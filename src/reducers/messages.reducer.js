@@ -34,6 +34,7 @@ export const slice = createSlice({
             messages: [],
             counter: 0
         },
+        snackbar:[],
         stop: false
     },
 
@@ -62,6 +63,14 @@ export const slice = createSlice({
         toggleMessages: (state, action) => {
             state.stop = !state.stop;
         },
+        removeSnackbar: (state, action) => {            
+            state.snackbar = state.snackbar.splice(action.payload,1)
+        },
+        deleteSnackbarById: (state, action) => {
+            const  id  = action.payload;
+            state.snackbar = state.snackbar.filter((snackbar)=>snackbar.id!==id)
+        },
+
     },
 
     extraReducers: {
@@ -72,6 +81,12 @@ export const slice = createSlice({
                 messages: [...state[KEYS_MESSAGES[type]].messages, { id: uuidv4(), text: message }],
                 counter: state[KEYS_MESSAGES[type]].counter + 1,
             }
+
+            state.snackbar = [...state.snackbar, {
+                id:uuidv4(),
+                text: message,
+                type: type             
+            }];
         },
 
         [getMessage.rejected]: (state, action) => {
@@ -80,7 +95,7 @@ export const slice = createSlice({
     },
 });
 
-export const { toggleMessages, deleteAllMessages, deleteMessage } = slice.actions;
+export const { toggleMessages, deleteAllMessages, deleteMessage, removeSnackbar, deleteSnackbarById} = slice.actions;
 
 export default slice.reducer;
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Container from './components/Layout/Container';
 import styled from 'styled-components'
 import MyButton from './components/MyButton/MyButton';
@@ -6,7 +6,7 @@ import Messages from './components/Messages/Messages';
 import { useDispatch } from 'react-redux';
 import { deleteAllMessages } from './reducers/messages.reducer';
 import usePollMessages from './hooks/usePollMessages';
-import Snackbar from './components/Snackbar/Snackbar';
+import SnackbarsContainer from './components/Snackbar/SnackbarsContainer';
 
 const StyledButtonsContainer = styled.div`
     display: flex;
@@ -26,7 +26,7 @@ const App = () => {
 
     return (
         <Container>
-            <Snackbar></Snackbar>
+            <SnackbarsContainer></SnackbarsContainer>
             <StyledButtonsContainer>
                 <MyButton label={isStopped ? 'Start' : 'Stop'} bgColor={isStopped ? '#51804f' : '#a1051a'} onClick={handleToggleFetch} />
                 <MyButton label="Clear" onClick={handleDeleteAll} />
